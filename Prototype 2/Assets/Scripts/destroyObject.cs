@@ -10,13 +10,13 @@ public class destroyObject : MonoBehaviour
     //private float topDespawn = 41;
     private float lowDespawn = -4;
     public float projSpeed;
-    private PlayerController MyPlayer;
-    public GameObject Player_dude_kiryu_person;
+    //public GameObject Player_dude_kiryu_person;
 
 
 
     // Update is called once per frame
-    public float heath;
+
+    healthSystem health = new healthSystem(5);
 
     public void OnTriggerEnter(Collider other){
 
@@ -25,18 +25,13 @@ public class destroyObject : MonoBehaviour
     
     }
     
-    void Start(){
-        Player_dude_kiryu_person.GetComponent<PlayerController>().healthAmount = heath;
-    }
 
     void Update()
     {
-        if(MyPlayer.Pause == false){
         transform.Translate(projSpeed * Time.deltaTime * Vector3.forward);
-        }
 
         if(lowDespawn > transform.position.z){
-        heath--; 
+        health.damage(1);
         Destroy(gameObject);
         }
     }

@@ -16,12 +16,12 @@ public class PlayerController : MonoBehaviour
     public GameObject[] powerUps;
     public bool _Pause
     {get{return Pause;}} 
-    public float healthAmount;
+    healthSystem health = new healthSystem(5);
 
     void Start(){
-
-        healthAmount = 5;
+        //InvokeRepeating("healthCheck", 1 ,1);
     }
+
     
     void Update()
     {
@@ -38,15 +38,22 @@ public class PlayerController : MonoBehaviour
             if (Pause) Pause = false;
             else Pause = true;
         }
+        if (Input.GetKeyDown(KeyCode.Y)) health.damage(1);
+        if (Input.GetKeyDown(KeyCode.U)) health.regain(1);
+        Debug.Log(health.getHealth());
+
     
+    }
+    public void healthCheck(){
+       
     }
 
     public void OnTriggerEnter(Collider other)
     {
 
     if (other.gameObject.tag != "health_Regain"){
-    Destroy(other);
-    healthAmount =+ 1;
+        health.damage(1);
+        Destroy(other);
     }
 
     }
