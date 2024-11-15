@@ -6,7 +6,7 @@ using UnityEngine;
 public class PorjectleMove : MonoBehaviour
 {
     private float topDespawn = 41;
-    private float lowDespawn = -4;
+    private float lowDespawn = -20;
     public float projSpeed;
     private PlayerController player;
 
@@ -22,6 +22,12 @@ public class PorjectleMove : MonoBehaviour
         Destroy(gameObject);
         }
 
-
+    }
+    public void OnTriggerEnter(Collider other){
+        if(other.gameObject.tag != "Player_dude_kiryu_person"){
+        Destroy(gameObject);
+        }
+        
+    
     }
 }

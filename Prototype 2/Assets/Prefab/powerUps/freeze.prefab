@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 448518}
   - component: {fileID: 3370552}
   - component: {fileID: 2386360}
-  - component: {fileID: 9205715627327335472}
   - component: {fileID: 1129924613998451915}
-  - component: {fileID: 35109227489078040}
+  - component: {fileID: 2492240992575343182}
   m_Layer: 0
   m_Name: freeze
   m_TagString: Untagged
@@ -86,19 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &9205715627327335472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5186a3c59967ca945b694ddf1b25c892, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projSpeed: -10
 --- !u!65 &1129924613998451915
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -120,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.26173592, y: 0.13675982, z: 0.4304055}
   m_Center: {x: 0, y: 0.111486286, z: 0.00342983}
---- !u!114 &35109227489078040
+--- !u!114 &2492240992575343182
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,6 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 160006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c3a56e4fae2fd74fa2b010b21748618, type: 3}
+  m_Script: {fileID: 11500000, guid: a7937a8222d3de64b925c1db6ccaae2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projSpeed: -10

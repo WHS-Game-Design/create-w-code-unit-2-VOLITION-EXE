@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 4400008515522110}
   - component: {fileID: 33814857596305084}
   - component: {fileID: 23357046182606914}
-  - component: {fileID: 7428547406175134274}
   - component: {fileID: 7494476589230165043}
-  - component: {fileID: 1938755704965883520}
-  m_Layer: 0
+  - component: {fileID: -8329800342339367366}
+  m_Layer: 3
   m_Name: speedBoost_proj_move
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,19 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7428547406175134274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1180137445707430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5186a3c59967ca945b694ddf1b25c892, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projSpeed: -10
 --- !u!65 &7494476589230165043
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -120,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.50622404, y: 0.47573793, z: 0.4844519}
   m_Center: {x: 0, y: 0.009565257, z: 0.021385126}
---- !u!114 &1938755704965883520
+--- !u!114 &-8329800342339367366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,6 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1180137445707430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c3a56e4fae2fd74fa2b010b21748618, type: 3}
+  m_Script: {fileID: 11500000, guid: a7937a8222d3de64b925c1db6ccaae2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projSpeed: -10

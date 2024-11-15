@@ -14,12 +14,14 @@ public class PlayerController : MonoBehaviour
     public GameObject pizzaProj;
     public bool Pause = false;
     public GameObject[] powerUps;
+    public GameObject[] Prefabs;
     public bool _Pause
     {get{return Pause;}} 
     healthSystem health = new healthSystem(5);
 
     void Start(){
         //InvokeRepeating("healthCheck", 1 ,1);
+        
     }
 
     
@@ -44,19 +46,29 @@ public class PlayerController : MonoBehaviour
 
     
     }
-    public void healthCheck(){
-       
-    }
+    
+
 
     public void OnTriggerEnter(Collider other)
     {
-
-    if (other.gameObject.tag != "health_Regain"){
+        
+        if(other.gameObject.CompareTag("Enemy")){
         health.damage(1);
-        Destroy(other);
-    }
+        Debug.Log("Enemy entered trigger");
+        Destroy(other.gameObject);
+        }
 
+        if(other.gameObject.CompareTag("health")){
+        health.regain(1);
+        Debug.Log("health entered trigger");
+        Destroy(other.gameObject);
+        }
     }
+    public void OnTriggerExit(Collider other){
+        Destroy(other.gameObject);
+    }
+    
+
+}
 
     
-}

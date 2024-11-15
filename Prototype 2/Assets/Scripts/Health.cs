@@ -19,12 +19,12 @@ using UnityEngine;
 
         public void damage(int damageAmount){
             healthAmount -= damageAmount;
-            //if (healthAmount < healthMax) healthAmount = 0;
+            if (healthAmount < healthMax) healthAmount = 0;
         }
 
         public void regain(int regainAmount){
             healthAmount += regainAmount;
-            //if (healthAmount > healthMax) healthAmount = healthMax;
+            if (healthAmount > healthMax) healthAmount = healthMax;
         }
 
 
