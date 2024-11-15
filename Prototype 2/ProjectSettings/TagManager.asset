@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - health
+  - shield
   layers:
   - Default
   - TransparentFX

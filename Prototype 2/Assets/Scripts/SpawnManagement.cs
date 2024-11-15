@@ -30,7 +30,7 @@ public class SpawnManagement : MonoBehaviour
 
     void SpawnPowerUps()
     {
-        int inde = Random.Range(0, Prefabs.Length);
+        int inde = Random.Range(0, 4);
         Instantiate(powerUps[inde], new Vector3(Random.Range(-24, 24),0, 40), powerUps[inde].transform.rotation);
     }
 }

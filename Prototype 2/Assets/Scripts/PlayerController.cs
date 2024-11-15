@@ -13,15 +13,20 @@ public class PlayerController : MonoBehaviour
     public Vector3 pos = new Vector3(0, 0, -10);
     public GameObject pizzaProj;
     public bool Pause = false;
-    public GameObject[] powerUps;
-    public GameObject[] Prefabs;
     public bool _Pause
     {get{return Pause;}} 
     healthSystem health = new healthSystem(5);
+    
+    public float Shield;
+    public bool invincible = false;
+    private IEnumerator shieldCoroutine;
+    public float shieldTime;
+    //public Coroutine shield;
 
     void Start(){
         //InvokeRepeating("healthCheck", 1 ,1);
-        
+
+
     }
 
     
@@ -46,6 +51,13 @@ public class PlayerController : MonoBehaviour
 
     
     }
+
+    private IEnumerator shield()
+    {
+        invincible = true;
+        yield return new WaitForSeconds(shieldTime);
+        invincible = false;
+    }
     
 
 
@@ -53,21 +65,29 @@ public class PlayerController : MonoBehaviour
     {
         
         if(other.gameObject.CompareTag("Enemy")){
-        health.damage(1);
+            health.damage(1);
+            if(invincible == false){
+                health.damage(1);
+            }
         Debug.Log("Enemy entered trigger");
-        Destroy(other.gameObject);
         }
+
 
         if(other.gameObject.CompareTag("health")){
         health.regain(1);
         Debug.Log("health entered trigger");
-        Destroy(other.gameObject);
         }
+
+        if(other.gameObject.CompareTag("shield")){
+        StartCoroutine(nameof(Shield));
+        Debug.Log("shield entered trigger");
+        }
+        
+    
     }
     public void OnTriggerExit(Collider other){
         Destroy(other.gameObject);
     }
-    
 
 }
 

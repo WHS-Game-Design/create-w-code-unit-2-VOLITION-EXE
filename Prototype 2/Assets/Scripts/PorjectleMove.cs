@@ -9,8 +9,14 @@ public class PorjectleMove : MonoBehaviour
     private float lowDespawn = -20;
     public float projSpeed;
     private PlayerController player;
+    healthSystem health = new healthSystem(5);
+    
 
-    void Start() => player = FindObjectOfType<PlayerController>();
+
+    void Start(){
+        player = FindObjectOfType<PlayerController>();
+
+    }
 
     void Update()
     {
@@ -23,11 +29,6 @@ public class PorjectleMove : MonoBehaviour
         }
 
     }
-    public void OnTriggerEnter(Collider other){
-        if(other.gameObject.tag != "Player_dude_kiryu_person"){
-        Destroy(gameObject);
-        }
-        
-    
-    }
+
+
 }
