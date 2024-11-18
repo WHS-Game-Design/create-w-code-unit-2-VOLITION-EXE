@@ -3,12 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - health
+  - shield
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - powerUps
   - Water
   - UI
   - 
