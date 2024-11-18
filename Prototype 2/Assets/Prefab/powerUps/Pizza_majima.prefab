@@ -101,6 +101,7 @@ MonoBehaviour:
   projSpeed: 30
   Shield: 5
   invincible: 0
+  healthhit: 0
 --- !u!65 &1520471503683491801
 BoxCollider:
   m_ObjectHideFlags: 0

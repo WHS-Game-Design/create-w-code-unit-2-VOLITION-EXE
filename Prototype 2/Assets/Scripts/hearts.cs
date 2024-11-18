@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class hearts : MonoBehaviour
 {
-    public GameObject healthimage;
-    public float healthThreshold = 1;
-    private healthSystem Hp;
+    //public GameObject healthimage;
+    public float healthThreshold;
+    //private healthSystem Hp;
+    public Image MyImage;
+    
 
     void Start()
     {
@@ -15,13 +18,11 @@ public class hearts : MonoBehaviour
     }
     void Update()
     {
-        if (Hp.healthAmount >= healthThreshold)
+        if (PlayerController.health >= healthThreshold)
         {
-            healthimage.SetActive(true);
-            Debug.Log("healthy");
+            MyImage.gameObject.SetActive(true);
         } else {
-            healthimage.SetActive(false);
-            Debug.Log("not healthy");
+            MyImage.gameObject.SetActive(false);
         }
         
         

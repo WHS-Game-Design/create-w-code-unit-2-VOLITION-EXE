@@ -13,7 +13,7 @@ public class SpawnManagement : MonoBehaviour
     void Start()
     {
         
-        InvokeRepeating("SpawnRandom", 1 , Random.Range(01f,spawnRate));
+        InvokeRepeating("SpawnRandom", 1 , spawnRate);
         InvokeRepeating("SpawnPowerUps", 1 ,powerSpawnRate);
 
     }

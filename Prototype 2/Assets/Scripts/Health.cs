@@ -7,7 +7,7 @@ using UnityEngine;
         public int healthMax = 5;
         public int healthAmount;
         public int _healthAmount
-        {get{return healthAmount;}} 
+         {get{return healthAmount;}} 
         public healthSystem(int healthMax){
             this.healthMax = healthMax;
             healthAmount = healthMax;
@@ -24,10 +24,11 @@ using UnityEngine;
 
         public void regain(int regainAmount){
             healthAmount += regainAmount;
-            if (healthAmount > healthMax) healthAmount = healthMax;
+            if (healthAmount >= healthMax) healthAmount = healthMax;
         }
 
 
     }
+
 
 

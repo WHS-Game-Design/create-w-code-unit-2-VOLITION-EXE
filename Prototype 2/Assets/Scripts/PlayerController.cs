@@ -9,23 +9,24 @@ using UnityEngine.UIElements;
 public class PlayerController : MonoBehaviour
 {
     public float horizontalInput;
+    public int healthMax = 4;
     public float speed;
     public Vector3 pos = new Vector3(0, 0, -10);
     public GameObject pizzaProj;
     public bool Pause = false;
     public bool _Pause
     {get{return Pause;}} 
-    healthSystem health = new healthSystem(5);
+    private PorjectleMove projectile;
+    //healthSystem health = new healthSystem(5);
+    public static float health;
     
-    public float Shield;
-    public bool invincible = false;
-    private IEnumerator shieldCoroutine;
-    public float shieldTime;
+    
     //public Coroutine shield;
 
     void Start(){
         //InvokeRepeating("healthCheck", 1 ,1);
-
+        projectile = pizzaProj.GetComponent<PorjectleMove>();
+        health = healthMax + 1;
 
     }
 
@@ -45,18 +46,28 @@ public class PlayerController : MonoBehaviour
             if (Pause) Pause = false;
             else Pause = true;
         }
-        if (Input.GetKeyDown(KeyCode.Y)) health.damage(1);
-        if (Input.GetKeyDown(KeyCode.U)) health.regain(1);
-        Debug.Log(health.getHealth());
-
+        if (Input.GetKeyDown(KeyCode.Y)){
+            health--;
+            
+        }
+        Debug.Log(health);
+        if (Input.GetKeyDown(KeyCode.U)){
+            health++;
+            Debug.Log(health);
+        }
+        if (projectile.healthhit == true){
+            health++;
+            Debug.Log(health);
+            projectile.healthhit = false;
+        
+        }
+        if(health <= 1){
+        health = 0;
+        }
+        if(health >= healthMax){
+        health = healthMax;
+        }
     
-    }
-
-    private IEnumerator shield()
-    {
-        invincible = true;
-        yield return new WaitForSeconds(shieldTime);
-        invincible = false;
     }
     
 
@@ -65,30 +76,17 @@ public class PlayerController : MonoBehaviour
     {
         
         if(other.gameObject.CompareTag("Enemy")){
-            health.damage(1);
-            if(invincible == false){
-                health.damage(1);
+            if(projectile.invincible == false && health > 0){
+                health--;
             }
         Debug.Log("Enemy entered trigger");
-        }
-
-
-        if(other.gameObject.CompareTag("health")){
-        health.regain(1);
-        Debug.Log("health entered trigger");
-        }
-
-        if(other.gameObject.CompareTag("shield")){
-        StartCoroutine(nameof(Shield));
-        Debug.Log("shield entered trigger");
+        if (projectile.invincible == true){
+            Debug.Log("shield entered trigger");
         }
         
-    
+    }
     }
     public void OnTriggerExit(Collider other){
         Destroy(other.gameObject);
     }
-
 }
-
-    
